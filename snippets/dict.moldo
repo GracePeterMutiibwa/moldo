@@ -1,0 +1,22 @@
+<!-- Create a dictionary -->
+<mblock type="print">Creating a student record:</mblock>
+<mblock type="variable">student = {"name": "Alice", "age": 20, "grades": [85, 90, 95]}</mblock>
+
+<!-- Access and print dictionary values -->
+<mblock type="print">Student name:</mblock>
+<mblock type="variable">name = student["name"]</mblock>
+<mblock type="print">name</mblock>
+
+<!-- Add new key-value pair -->
+<mblock type="variable">student["subject"] = "Computer Science"</mblock>
+
+<!-- Print the updated dictionary -->
+<mblock type="print">Updated student record:</mblock>
+<mblock type="print">student</mblock>
+
+<!-- Loop through dictionary keys -->
+<mblock type="print">Student details:</mblock>
+<mblock type="loop" condition="key in student">
+    <mblock type="variable">value = student[key]</mblock>
+    <mblock type="print">f"{key}: {value}"</mblock> 
+</mblock>

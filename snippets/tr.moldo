@@ -1,0 +1,10 @@
+<mblock type="print">Hello, World!</mblock>
+<mblock type="variable">age = 12</mblock>
+<mblock type="if" condition="age<=18">
+    <mblock type="print">Oops you old</mblock>
+</mblock>
+<mblock type="if" condition="age == 18">
+    <mblock type="print">Congs</mblock>
+
+    <mblock type="variable">age = 15</mblock>
+</mblock>

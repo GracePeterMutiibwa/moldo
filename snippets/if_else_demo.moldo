@@ -1,0 +1,11 @@
+<mblock type="print">Moldo If-Else Demo</mblock>
+
+<mblock type="print">Enter a number: </mblock>
+<mblock type="variable">num = int(input())</mblock>
+
+<mblock type="if" condition="num % 2 == 0">
+    <mblock type="print">The number is even.</mblock>
+</mblock>
+<mblock type="if" condition="num % 2 != 0">
+    <mblock type="print">The number is odd.</mblock>
+</mblock> 

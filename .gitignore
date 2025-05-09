@@ -1,0 +1,9 @@
+.qodo
+.venv
+dist
+build
+moldo.egg-info
+ref.html
+editor
+need
+.pytest_cache

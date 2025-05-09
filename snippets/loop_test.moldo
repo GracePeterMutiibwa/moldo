@@ -1,0 +1,25 @@
+<mblock type="print">Testing Loop with Condition Attribute</mblock>
+
+<!-- Create a list of numbers -->
+<mblock type="variable">numbers = [1, 2, 3, 4, 5]</mblock>
+
+<!-- Use the new loop syntax with condition attribute -->
+<mblock type="loop" condition="num in numbers">
+    <mblock type="variable">squared = num * num</mblock>
+    <mblock type="print">f"The square of {num} is {squared}"</mblock>
+</mblock>
+
+<!-- Another example with range -->
+<mblock type="print">Counting down:</mblock>
+<mblock type="loop" condition="i in range(5, 0, -1)">
+    <mblock type="print">i</mblock>
+</mblock>
+
+<!-- Nested loops example -->
+<mblock type="print">Multiplication table:</mblock>
+<mblock type="loop" condition="i in range(1, 4)">
+    <mblock type="loop" condition="j in range(1, 4)">
+        <mblock type="print">f"{i} × {j} = {i * j}"</mblock>
+    </mblock>
+    <mblock type="print">"-----------"</mblock>
+</mblock> 

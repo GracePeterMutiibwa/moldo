@@ -1,0 +1,10 @@
+<mblock type="variable">counter = 0</mblock>
+
+<mblock type="loop" condition="i in range(1, 11)">
+    <mblock type="print">f"Count: {i}"</mblock>
+    <mblock type="variable">counter += i</mblock>
+    <mblock type="loop" condition="e in range(i)">
+        <mblock type="print">f"At {i}:: {e}"</mblock>
+    </mblock>
+    <mblock type="print">All is well</mblock>
+</mblock>

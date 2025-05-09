@@ -1,0 +1,25 @@
+<mblock type="import">examples/temperature_utils.py</mblock>
+
+<mblock type="print">Welcome to Temperature Converter!</mblock>
+<mblock type="print">1. Convert Celsius to Fahrenheit</mblock>
+<mblock type="print">2. Convert Fahrenheit to Celsius</mblock>
+
+<mblock type="input">Enter your choice (1 or 2): </mblock>
+<mblock type="variable">choice = input()</mblock>
+
+<mblock type="variable">
+if choice == "1":
+    print("Enter temperature in Celsius: ", end="")
+    celsius = float(input())
+    print(f"{celsius}°C is equal to ", end="")
+    result = temperature_utils.celsius_to_fahrenheit(celsius)
+    print(f"{result:.1f}°F")
+elif choice == "2":
+    print("Enter temperature in Fahrenheit: ", end="")
+    fahrenheit = float(input())
+    print(f"{fahrenheit}°F is equal to ", end="")
+    result = temperature_utils.fahrenheit_to_celsius(fahrenheit)
+    print(f"{result:.1f}°C")
+else:
+    print("Invalid choice! Please enter 1 or 2.")
+</mblock> 

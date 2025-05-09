@@ -1,0 +1,35 @@
+<mblock type="variable">students = [
+    {"name": "Alice", "age": 20, "grades": [85, 90, 95]},
+    {"name": "Bob", "age": 21, "grades": [75, 80, 85]},
+    {"name": "Charlie", "age": 19, "grades": [95, 92, 98]}
+]</mblock>
+
+<comment>Function to calculate average grade</comment>
+<python>
+def calculate_average(grades):
+    return sum(grades) / len(grades)
+</python>
+
+
+<mblock type="print">Student Report:</mblock>
+
+<mblock type="loop" condition="student in students">
+    <mblock type="variable">name = student["name"]</mblock>
+    <mblock type="variable">age = student["age"]</mblock>
+    <mblock type="variable">grades = student["grades"]</mblock>
+
+    <mblock type="variable">average = calculate_average(grades)</mblock>
+    
+    <mblock type="variable">student["average"] = round(average, 2)</mblock>
+    
+    <mblock type="print">f"\nStudent: {name}"</mblock>
+    <mblock type="print">f"Age: {age}"</mblock>
+    <mblock type="print">f"Grades: {grades}"</mblock>
+    <mblock type="print">f"Average: {student['average']}"</mblock>
+</mblock>
+
+<mblock type="variable">best_student = max(students, key=lambda s: s["average"])</mblock>
+
+<mblock type="print">\nTop Student:</mblock>
+<mblock type="print">f"Name: {best_student['name']}"</mblock>
+<mblock type="print">f"Average: {best_student['average']}"</mblock> 

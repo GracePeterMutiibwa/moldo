@@ -1,0 +1,5 @@
+<mblock type="print">Hello, World!</mblock>
+
+<mblock type="print">What's your name? </mblock>
+<mblock type="variable">name = input()</mblock>
+<mblock type="print">f"Nice to meet you, {name}!"</mblock> 
