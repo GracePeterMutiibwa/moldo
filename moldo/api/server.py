@@ -49,7 +49,7 @@ async def compile_code(moldo_code: MoldoCode) -> Dict[str, str]:
         raise HTTPException(status_code=400, detail=str(e))
 
 
-@app.get("/functions")
+# @app.get("/functions")
 async def get_available_functions() -> Dict[str, List[str]]:
     """
     Get a list of all available Moldo functions.
@@ -60,7 +60,7 @@ async def get_available_functions() -> Dict[str, List[str]]:
     return {"functions": {}}
 
 
-@app.post("/functions/{name}")
+# @app.post("/functions/{name}")
 async def execute_function(name: str, args: Dict[str, Any]) -> Dict[str, Any]:
     """
     Execute a specific Moldo function.
