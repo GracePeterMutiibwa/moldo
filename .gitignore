@@ -6,3 +6,5 @@ ref.html
 editor
 need
 .pytest_cache
+__pycache__/
+*.pyc
