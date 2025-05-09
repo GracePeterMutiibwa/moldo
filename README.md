@@ -1,5 +1,7 @@
 # Moldo
 
+![Moldo](https://raw.githubusercontent.com/GracePeterMutiibwa/moldo/main/assets/moldo-var.png)
+
 Moldo is a visual programming language with an XML-like syntax that compiles to Python. This document details the syntax structure and usage patterns for Moldo code.
 
 ## Installation

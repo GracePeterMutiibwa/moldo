@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="moldo",
-    version="0.3.3",
+    version="0.3.4",
     packages=find_packages(),
     install_requires=[
         "antlr4-python3-runtime>=4.13.1",
