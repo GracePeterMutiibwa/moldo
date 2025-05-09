@@ -2,12 +2,13 @@ from setuptools import setup, find_packages
 
 setup(
     name="moldo",
-    version="0.3.6",
+    version="0.3.7",
     packages=find_packages(),
     install_requires=[
         "antlr4-python3-runtime>=4.13.1",
         "typing-extensions>=4.0.0",
         "uvicorn>=0.34.2",
+        "fastapi>=0.109.2",
     ],
     entry_points={
         "console_scripts": [
