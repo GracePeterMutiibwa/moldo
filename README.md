@@ -381,6 +381,8 @@ python snippets/cnr.py <input_file> # Compile and run Moldo code run file is inc
 
 moldo --help # Show help message
 
+moldo serve # starts a fast api server for the compiler accessible via /compile, default address is 127.0.0.1:8000
+
 ```
 
 ## 10. Code Examples (Summary)
@@ -453,7 +455,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 - **Mutiibwa Grace Peter**
   - [GitHub](https://github.com/GracePeterMutiibwa)
-  - [Website](https://gracepeter.space)
+  - [Website](https://www.gracepeter.space)
 
 ## Acknowledgments
 

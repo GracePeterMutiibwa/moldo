@@ -1,6 +1,5 @@
 .qodo
 .venv
-dist
 build
 moldo.egg-info
 ref.html
