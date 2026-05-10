@@ -6,6 +6,18 @@ site_url: https://gracepetermutiibwa.github.io/moldo/
 repo_name: GracePeterMutiibwa/moldo
 repo_url: https://github.com/GracePeterMutiibwa/moldo
 
+
+nav:
+  - Home: index.md
+  - Getting Started: getting-started.md
+  - Molds:
+      - Overview: molds/index.md
+      - Creating Molds: molds/creating-molds.md
+      - Manifest Reference: molds/manifest.md
+  - API Reference: api.md
+  - Protocol: protocol.md
+
+
 theme:
   name: material
   palette:
@@ -56,13 +68,7 @@ markdown_extensions:
   - tables
   - attr_list
   - md_in_html
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
 
-nav:
-  - Home: index.md
-  - Getting Started: getting-started.md
-  - Molds:
-      - Overview: molds/index.md
-      - Creating Molds: molds/creating-molds.md
-      - Manifest Reference: molds/manifest.md
-  - API Reference: api.md
-  - Protocol: protocol.md
