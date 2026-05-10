@@ -8,6 +8,8 @@
 
 Moldo is the backend runtime for a visual block-based programming environment. Learners drag and connect blocks in the **mflow-editor** desktop app to build programs. The editor compiles the visual graph to a JSON program tree and sends it to this backend, which executes it and streams the output back.
 
+![Moldo](https://raw.githubusercontent.com/GracePeterMutiibwa/moldo/main/assets/moldo-var.png)
+
 The system is extensible through **molds** - self-contained `.zip.mold` packages that add new block types to the editor. The 7 built-in capabilities (variables, I/O, control, math, text, collections, functions) are themselves molds.
 
 ---
