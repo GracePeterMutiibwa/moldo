@@ -1,0 +1,54 @@
+{
+  "name": "variables",
+  "displayName": "Variables",
+  "version": "1.0.0",
+  "description": "Declare, assign, and modify variables",
+  "author": "Moldo Core",
+  "isCore": true,
+  "blocks": [
+    {
+      "id": "declare",
+      "name": "Declare Variable",
+      "description": "Create a new variable and give it an initial value",
+      "nodeShape": "rect",
+      "nodeType": "process",
+      "color": "blue",
+      "icon": "hash",
+      "inputs": [
+        { "id": "name",     "label": "Variable name", "type": "text",   "placeholder": "myVariable" },
+        { "id": "dataType", "label": "Type",          "type": "select", "options": ["text", "int", "float", "bool"] },
+        { "id": "value",    "label": "Initial value", "type": "text",   "placeholder": "0" }
+      ],
+      "outputs": []
+    },
+    {
+      "id": "assign",
+      "name": "Assign Value",
+      "description": "Set a variable to a new value or expression",
+      "nodeShape": "rect",
+      "nodeType": "process",
+      "color": "blue",
+      "icon": "tag",
+      "inputs": [
+        { "id": "target", "label": "Variable",  "type": "variable", "placeholder": "myVariable" },
+        { "id": "value",  "label": "New value", "type": "text",     "placeholder": "42 or @otherVar" }
+      ],
+      "outputs": []
+    },
+    {
+      "id": "modify",
+      "name": "Modify Variable",
+      "description": "Apply an arithmetic operation to a variable in place",
+      "nodeShape": "rect",
+      "nodeType": "process",
+      "color": "blue",
+      "icon": "calc",
+      "inputs": [
+        { "id": "target",   "label": "Variable", "type": "variable", "placeholder": "counter" },
+        { "id": "operator", "label": "By",       "type": "select",   "options": ["+=", "-=", "*=", "/=", "//=", "%=", "**="] },
+        { "id": "value",    "label": "Amount",   "type": "text",     "placeholder": "1" }
+      ],
+      "outputs": []
+    }
+  ]
+}

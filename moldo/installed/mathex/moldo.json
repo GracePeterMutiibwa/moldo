@@ -1,0 +1,131 @@
+{
+  "name": "mathex",
+  "displayName": "Math Extras",
+  "version": "1.0.0",
+  "description": "Extra math operations beyond the built-ins",
+  "author": "Moldo Community",
+  "moldoMinVersion": "0.5.0",
+  "isCore": false,
+  "blocks": [
+    {
+      "id": "modulo",
+      "name": "Remainder",
+      "description": "Divides two numbers and returns the remainder",
+      "nodeType": "process",
+      "color": "#D97706",
+      "icon": "bi-percent",
+      "inputs": [
+        {
+          "id": "dividend",
+          "label": "Number",
+          "type": "variable",
+          "placeholder": "a"
+        },
+        {
+          "id": "divisor",
+          "label": "Divide by",
+          "type": "variable",
+          "placeholder": "b"
+        }
+      ],
+      "outputs": [
+        {
+          "id": "result",
+          "label": "Save remainder to",
+          "type": "variable"
+        }
+      ],
+      "pythonCall": "mathex.modulo"
+    },
+    {
+      "id": "clamp",
+      "name": "Clamp Value",
+      "description": "Keeps a number within a min/max range",
+      "nodeType": "process",
+      "color": "#D97706",
+      "icon": "bi-sliders",
+      "inputs": [
+        {
+          "id": "value",
+          "label": "Value",
+          "type": "variable",
+          "placeholder": "x"
+        },
+        {
+          "id": "min_val",
+          "label": "Min",
+          "type": "number",
+          "placeholder": "0"
+        },
+        {
+          "id": "max_val",
+          "label": "Max",
+          "type": "number",
+          "placeholder": "100"
+        }
+      ],
+      "outputs": [
+        {
+          "id": "result",
+          "label": "Save result to",
+          "type": "variable"
+        }
+      ],
+      "pythonCall": "mathex.clamp"
+    },
+    {
+      "id": "is_even",
+      "name": "Is Even?",
+      "description": "Returns True if the number is even",
+      "nodeType": "process",
+      "color": "#D97706",
+      "icon": "bi-check-circle",
+      "inputs": [
+        {
+          "id": "value",
+          "label": "Number",
+          "type": "variable",
+          "placeholder": "n"
+        }
+      ],
+      "outputs": [
+        {
+          "id": "result",
+          "label": "Save result to",
+          "type": "variable"
+        }
+      ],
+      "pythonCall": "mathex.is_even"
+    },
+    {
+      "id": "average",
+      "name": "Average of Two",
+      "description": "Returns the average of two numbers",
+      "nodeType": "process",
+      "color": "#D97706",
+      "icon": "bi-bar-chart",
+      "inputs": [
+        {
+          "id": "a",
+          "label": "First number",
+          "type": "variable",
+          "placeholder": "x"
+        },
+        {
+          "id": "b",
+          "label": "Second number",
+          "type": "variable",
+          "placeholder": "y"
+        }
+      ],
+      "outputs": [
+        {
+          "id": "result",
+          "label": "Save average to",
+          "type": "variable"
+        }
+      ],
+      "pythonCall": "mathex.average"
+    }
+  ]
+}

@@ -1,9 +1,4 @@
-from .MoldoEntry import cast
+from .compiler import ProgramCompiler
+from .mold_registry import MoldRegistry
 
-
-class ParserInterface:
-    def parse(self, moldoCode: str):
-        return cast(moldoCode)
-
-
-__all__ = ["ParserInterface"]
+__all__ = ['ProgramCompiler', 'MoldRegistry']

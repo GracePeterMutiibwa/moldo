@@ -1,0 +1,134 @@
+{
+  "name": "collections",
+  "displayName": "Collections",
+  "version": "1.0.0",
+  "description": "Lists and dictionaries: create, read, add, remove",
+  "author": "Moldo Core",
+  "isCore": true,
+  "blocks": [
+    {
+      "id": "createList",
+      "name": "Create List",
+      "description": "Create an empty list or a list with initial items",
+      "nodeShape": "rect",
+      "nodeType": "process",
+      "color": "emerald",
+      "icon": "layers",
+      "inputs": [
+        { "id": "items",  "label": "Initial items (comma-separated, leave empty for [])", "type": "text", "placeholder": "apple, banana, cherry" },
+        { "id": "result", "label": "Store in", "type": "text", "placeholder": "myList" }
+      ],
+      "outputs": [
+        { "id": "result", "label": "List variable" }
+      ]
+    },
+    {
+      "id": "append",
+      "name": "Append to List",
+      "description": "Add an item to the end of a list",
+      "nodeShape": "rect",
+      "nodeType": "process",
+      "color": "emerald",
+      "icon": "layers",
+      "inputs": [
+        { "id": "list", "label": "List variable", "type": "variable", "placeholder": "myList" },
+        { "id": "item", "label": "Item to add",   "type": "text",     "placeholder": "@newItem or 42" }
+      ],
+      "outputs": []
+    },
+    {
+      "id": "getItem",
+      "name": "Get from List",
+      "description": "Get the item at a specific position (index starts at 0)",
+      "nodeShape": "rect",
+      "nodeType": "process",
+      "color": "emerald",
+      "icon": "layers",
+      "inputs": [
+        { "id": "list",   "label": "List variable", "type": "variable", "placeholder": "myList" },
+        { "id": "index",  "label": "Position",      "type": "text",     "placeholder": "0" },
+        { "id": "result", "label": "Store in",      "type": "text",     "placeholder": "item" }
+      ],
+      "outputs": [
+        { "id": "result", "label": "Result variable" }
+      ]
+    },
+    {
+      "id": "removeItem",
+      "name": "Remove from List",
+      "description": "Remove the item at a specific position from a list",
+      "nodeShape": "rect",
+      "nodeType": "process",
+      "color": "emerald",
+      "icon": "layers",
+      "inputs": [
+        { "id": "list",  "label": "List variable", "type": "variable", "placeholder": "myList" },
+        { "id": "index", "label": "Position",      "type": "text",     "placeholder": "0" }
+      ],
+      "outputs": []
+    },
+    {
+      "id": "listLength",
+      "name": "List Length",
+      "description": "Count how many items are in a list",
+      "nodeShape": "rect",
+      "nodeType": "process",
+      "color": "emerald",
+      "icon": "ruler",
+      "inputs": [
+        { "id": "list",   "label": "List variable", "type": "variable", "placeholder": "myList" },
+        { "id": "result", "label": "Store count in", "type": "text",    "placeholder": "count" }
+      ],
+      "outputs": [
+        { "id": "result", "label": "Result variable" }
+      ]
+    },
+    {
+      "id": "createDict",
+      "name": "Create Dictionary",
+      "description": "Create an empty dictionary (key-value store)",
+      "nodeShape": "rect",
+      "nodeType": "process",
+      "color": "emerald",
+      "icon": "database",
+      "inputs": [
+        { "id": "result", "label": "Store in", "type": "text", "placeholder": "myDict" }
+      ],
+      "outputs": [
+        { "id": "result", "label": "Dict variable" }
+      ]
+    },
+    {
+      "id": "setKey",
+      "name": "Set Key",
+      "description": "Add or update a key in a dictionary",
+      "nodeShape": "rect",
+      "nodeType": "process",
+      "color": "emerald",
+      "icon": "database",
+      "inputs": [
+        { "id": "dict",  "label": "Dictionary", "type": "variable", "placeholder": "myDict" },
+        { "id": "key",   "label": "Key",        "type": "text",     "placeholder": "name" },
+        { "id": "value", "label": "Value",       "type": "text",     "placeholder": "@userName or Grace" }
+      ],
+      "outputs": []
+    },
+    {
+      "id": "getKey",
+      "name": "Get Key",
+      "description": "Read a value from a dictionary by its key",
+      "nodeShape": "rect",
+      "nodeType": "process",
+      "color": "emerald",
+      "icon": "database",
+      "inputs": [
+        { "id": "dict",   "label": "Dictionary", "type": "variable", "placeholder": "myDict" },
+        { "id": "key",    "label": "Key",        "type": "text",     "placeholder": "name" },
+        { "id": "result", "label": "Store in",   "type": "text",     "placeholder": "value" }
+      ],
+      "outputs": [
+        { "id": "result", "label": "Result variable" }
+      ]
+    }
+  ]
+}

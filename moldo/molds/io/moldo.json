@@ -1,0 +1,40 @@
+{
+  "name": "io",
+  "displayName": "Input / Output",
+  "version": "1.0.0",
+  "description": "Display output and collect input from the user",
+  "author": "Moldo Core",
+  "isCore": true,
+  "blocks": [
+    {
+      "id": "print",
+      "name": "Print",
+      "description": "Display a message or variable value in the output panel",
+      "nodeShape": "rect",
+      "nodeType": "output",
+      "color": "amber",
+      "icon": "send",
+      "inputs": [
+        { "id": "value", "label": "Message or variable", "type": "text", "placeholder": "Hello! or @myVariable" }
+      ],
+      "outputs": []
+    },
+    {
+      "id": "prompt",
+      "name": "Ask User",
+      "description": "Show a prompt and store the user's answer in a variable",
+      "nodeShape": "rect",
+      "nodeType": "input",
+      "color": "violet",
+      "icon": "prompt",
+      "inputs": [
+        { "id": "message",  "label": "Question to ask", "type": "text",   "placeholder": "What is your name?" },
+        { "id": "dataType", "label": "Expected type",   "type": "select", "options": ["text", "int", "float"] },
+        { "id": "target",   "label": "Store answer in", "type": "text",   "placeholder": "userAnswer" }
+      ],
+      "outputs": [
+        { "id": "target", "label": "Answer variable" }
+      ]
+    }
+  ]
+}

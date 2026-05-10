@@ -1,0 +1,119 @@
+{
+  "name": "stringer",
+  "displayName": "String Tools",
+  "version": "1.0.0",
+  "description": "Extra string manipulation utilities",
+  "author": "Moldo Community",
+  "moldoMinVersion": "0.5.0",
+  "isCore": false,
+  "blocks": [
+    {
+      "id": "reverse",
+      "name": "Reverse",
+      "description": "Reverses a string",
+      "nodeType": "process",
+      "color": "#8B5CF6",
+      "icon": "bi-arrow-left-right",
+      "inputs": [
+        {
+          "id": "value",
+          "label": "String",
+          "type": "variable",
+          "placeholder": "my_var"
+        }
+      ],
+      "outputs": [
+        {
+          "id": "result",
+          "label": "Save result to",
+          "type": "variable"
+        }
+      ],
+      "pythonCall": "stringer.reverse_str"
+    },
+    {
+      "id": "trim",
+      "name": "Trim Whitespace",
+      "description": "Removes leading and trailing spaces",
+      "nodeType": "process",
+      "color": "#8B5CF6",
+      "icon": "bi-scissors",
+      "inputs": [
+        {
+          "id": "value",
+          "label": "String",
+          "type": "variable",
+          "placeholder": "my_var"
+        }
+      ],
+      "outputs": [
+        {
+          "id": "result",
+          "label": "Save result to",
+          "type": "variable"
+        }
+      ],
+      "pythonCall": "stringer.trim_str"
+    },
+    {
+      "id": "count_substr",
+      "name": "Count Substring",
+      "description": "Counts occurrences of a substring",
+      "nodeType": "process",
+      "color": "#8B5CF6",
+      "icon": "bi-hash",
+      "inputs": [
+        {
+          "id": "value",
+          "label": "String",
+          "type": "variable",
+          "placeholder": "my_var"
+        },
+        {
+          "id": "substring",
+          "label": "Substring",
+          "type": "text",
+          "placeholder": "hello"
+        }
+      ],
+      "outputs": [
+        {
+          "id": "result",
+          "label": "Save count to",
+          "type": "variable"
+        }
+      ],
+      "pythonCall": "stringer.count_substr"
+    },
+    {
+      "id": "repeat",
+      "name": "Repeat String",
+      "description": "Repeats a string N times",
+      "nodeType": "process",
+      "color": "#8B5CF6",
+      "icon": "bi-repeat",
+      "inputs": [
+        {
+          "id": "value",
+          "label": "String",
+          "type": "variable",
+          "placeholder": "my_var"
+        },
+        {
+          "id": "times",
+          "label": "Times",
+          "type": "number",
+          "placeholder": "3"
+        }
+      ],
+      "outputs": [
+        {
+          "id": "result",
+          "label": "Save result to",
+          "type": "variable"
+        }
+      ],
+      "pythonCall": "stringer.repeat_str"
+    }
+  ]
+}

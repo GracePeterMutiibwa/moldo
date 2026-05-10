@@ -1,0 +1,59 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+# Author: Grace Peter Mutiibwa
+
+[project]
+name = "moldo"
+version = "0.5.0"
+description = "Backend runtime for Moldo — a visual educational programming language."
+readme = "README.md"
+license = { text = "MIT" }
+authors = [{ name = "Grace Peter Mutiibwa", email = "gracepetermutiibwa@gmail.com" }]
+requires-python = ">=3.10"
+keywords = ["visual-programming", "education", "compiler", "blocks", "flowchart", "python"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Education",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Education",
+    "Topic :: Software Development :: Compilers",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+dependencies = [
+    "fastapi>=0.109.2",
+    "uvicorn>=0.34.2",
+    "pydantic>=2.0",
+    "python-multipart>=0.0.9",
+    "typing-extensions>=4.0.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=7.4", "pytest-cov", "httpx", "black", "ruff"]
+docs = ["mkdocs-material>=9.5", "mkdocs>=1.5"]
+
+[project.scripts]
+moldo = "moldo.cli:main"
+
+[project.urls]
+Homepage   = "https://github.com/GracePeterMutiibwa/moldo"
+Repository = "https://github.com/GracePeterMutiibwa/moldo"
+
+[tool.setuptools.packages.find]
+where   = ["."]
+include = ["moldo*"]
+
+[tool.black]
+line-length = 100
+
+[tool.ruff]
+line-length = 100
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

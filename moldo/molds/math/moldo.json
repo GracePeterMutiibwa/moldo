@@ -1,0 +1,94 @@
+{
+  "name": "math",
+  "displayName": "Math",
+  "version": "1.0.0",
+  "description": "Arithmetic and common mathematical operations",
+  "author": "Moldo Core",
+  "isCore": true,
+  "blocks": [
+    {
+      "id": "arithmetic",
+      "name": "Calculate",
+      "description": "Apply an arithmetic operation to two values and store the result",
+      "nodeShape": "rect",
+      "nodeType": "process",
+      "color": "rose",
+      "icon": "calc",
+      "inputs": [
+        { "id": "left",     "label": "First value",  "type": "text",   "placeholder": "@a or 10" },
+        { "id": "operator", "label": "Operation",    "type": "select", "options": ["+", "-", "*", "/", "//", "%", "**"] },
+        { "id": "right",    "label": "Second value", "type": "text",   "placeholder": "@b or 5" },
+        { "id": "result",   "label": "Store in",     "type": "text",   "placeholder": "result" }
+      ],
+      "outputs": [
+        { "id": "result", "label": "Result variable" }
+      ]
+    },
+    {
+      "id": "round",
+      "name": "Round",
+      "description": "Round a number to a given number of decimal places",
+      "nodeShape": "rect",
+      "nodeType": "process",
+      "color": "rose",
+      "icon": "calc",
+      "inputs": [
+        { "id": "value",    "label": "Number",    "type": "text", "placeholder": "@price or 3.14159" },
+        { "id": "decimals", "label": "Decimals",  "type": "text", "placeholder": "2" },
+        { "id": "result",   "label": "Store in",  "type": "text", "placeholder": "rounded" }
+      ],
+      "outputs": [
+        { "id": "result", "label": "Result variable" }
+      ]
+    },
+    {
+      "id": "abs",
+      "name": "Absolute Value",
+      "description": "Get the positive (absolute) value of a number",
+      "nodeShape": "rect",
+      "nodeType": "process",
+      "color": "rose",
+      "icon": "calc",
+      "inputs": [
+        { "id": "value",  "label": "Number",   "type": "text", "placeholder": "@temperature or -5" },
+        { "id": "result", "label": "Store in", "type": "text", "placeholder": "absValue" }
+      ],
+      "outputs": [
+        { "id": "result", "label": "Result variable" }
+      ]
+    },
+    {
+      "id": "sqrt",
+      "name": "Square Root",
+      "description": "Calculate the square root of a number",
+      "nodeShape": "rect",
+      "nodeType": "process",
+      "color": "rose",
+      "icon": "calc",
+      "inputs": [
+        { "id": "value",  "label": "Number",   "type": "text", "placeholder": "@area or 144" },
+        { "id": "result", "label": "Store in", "type": "text", "placeholder": "root" }
+      ],
+      "outputs": [
+        { "id": "result", "label": "Result variable" }
+      ]
+    },
+    {
+      "id": "random",
+      "name": "Random Number",
+      "description": "Generate a random integer between two values (inclusive)",
+      "nodeShape": "rect",
+      "nodeType": "process",
+      "color": "rose",
+      "icon": "spark",
+      "inputs": [
+        { "id": "min",    "label": "Minimum",  "type": "text", "placeholder": "1" },
+        { "id": "max",    "label": "Maximum",  "type": "text", "placeholder": "100" },
+        { "id": "result", "label": "Store in", "type": "text", "placeholder": "roll" }
+      ],
+      "outputs": [
+        { "id": "result", "label": "Result variable" }
+      ]
+    }
+  ]
+}

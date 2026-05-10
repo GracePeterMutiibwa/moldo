@@ -1,0 +1,74 @@
+{
+  "name": "control",
+  "displayName": "Control Flow",
+  "version": "1.0.0",
+  "description": "Branch and repeat: if/else, for loops, while loops",
+  "author": "Moldo Core",
+  "isCore": true,
+  "blocks": [
+    {
+      "id": "branch",
+      "name": "If / Else",
+      "description": "Follow the 'yes' path if the condition is true, otherwise follow 'no'",
+      "nodeShape": "diamond",
+      "nodeType": "decision",
+      "color": "slate",
+      "icon": "branch",
+      "hasBranches": true,
+      "inputs": [
+        { "id": "left",     "label": "Left value",  "type": "text",   "placeholder": "@score or 100" },
+        { "id": "operator", "label": "Operator",    "type": "select", "options": ["==", "!=", ">", "<", ">=", "<=", "contains", "not contains"] },
+        { "id": "right",    "label": "Right value", "type": "text",   "placeholder": "50 or @threshold" }
+      ],
+      "outputs": []
+    },
+    {
+      "id": "forLoop",
+      "name": "For Loop",
+      "description": "Repeat the body a set number of times, counting with a variable",
+      "nodeShape": "rect",
+      "nodeType": "loop",
+      "color": "emerald",
+      "icon": "loop",
+      "hasBody": true,
+      "inputs": [
+        { "id": "variable", "label": "Count variable", "type": "text",   "placeholder": "i" },
+        { "id": "from",     "label": "From",           "type": "text",   "placeholder": "0" },
+        { "id": "to",       "label": "To (exclusive)", "type": "text",   "placeholder": "10" },
+        { "id": "step",     "label": "Step",           "type": "text",   "placeholder": "1" }
+      ],
+      "outputs": []
+    },
+    {
+      "id": "forEachLoop",
+      "name": "For Each",
+      "description": "Loop through every item in a list",
+      "nodeShape": "rect",
+      "nodeType": "loop",
+      "color": "emerald",
+      "icon": "loop",
+      "hasBody": true,
+      "inputs": [
+        { "id": "variable", "label": "Item variable", "type": "text",     "placeholder": "item" },
+        { "id": "list",     "label": "List to loop",  "type": "variable", "placeholder": "myList" }
+      ],
+      "outputs": []
+    },
+    {
+      "id": "whileLoop",
+      "name": "While Loop",
+      "description": "Keep repeating the body as long as the condition stays true",
+      "nodeShape": "rect",
+      "nodeType": "loop",
+      "color": "emerald",
+      "icon": "loop",
+      "hasBody": true,
+      "inputs": [
+        { "id": "left",     "label": "Left value",  "type": "text",   "placeholder": "@count or 0" },
+        { "id": "operator", "label": "Operator",    "type": "select", "options": ["<", "<=", ">", ">=", "==", "!="] },
+        { "id": "right",    "label": "Right value", "type": "text",   "placeholder": "10" }
+      ],
+      "outputs": []
+    }
+  ]
+}

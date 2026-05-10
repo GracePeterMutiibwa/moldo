@@ -1,0 +1,61 @@
+{
+  "name": "mymold",
+  "displayName": "My Mold",
+  "version": "1.0.0",
+  "description": "A short description of what your mold does",
+  "author": "Your Name",
+  "moldoMinVersion": "0.5.0",
+  "isCore": false,
+  "blocks": [
+    {
+      "id": "greet",
+      "name": "Greet",
+      "description": "Prints a personalised greeting",
+      "nodeType": "output",
+      "nodeShape": "rect",
+      "color": "#6366f1",
+      "icon": "wave",
+      "inputs": [
+        {
+          "id": "name",
+          "label": "Name",
+          "type": "variable",
+          "placeholder": "@username"
+        },
+        {
+          "id": "style",
+          "label": "Style",
+          "type": "select",
+          "options": ["formal", "casual", "shout"]
+        }
+      ],
+      "outputs": [],
+      "pythonCall": "mymold.greet"
+    },
+    {
+      "id": "reverse",
+      "name": "Reverse Text",
+      "description": "Reverses a string and stores the result",
+      "nodeType": "process",
+      "nodeShape": "rect",
+      "color": "#6366f1",
+      "icon": "shuffle",
+      "inputs": [
+        {
+          "id": "text",
+          "label": "Input text",
+          "type": "variable",
+          "placeholder": "@myString"
+        }
+      ],
+      "outputs": [
+        {
+          "id": "result",
+          "label": "Store result in",
+          "type": "variable"
+        }
+      ],
+      "pythonCall": "mymold.reverse_text"
+    }
+  ]
+}

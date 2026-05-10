@@ -1,0 +1,55 @@
+{
+  "name": "functions",
+  "displayName": "Functions",
+  "version": "1.0.0",
+  "description": "Define reusable functions and call them",
+  "author": "Moldo Core",
+  "isCore": true,
+  "blocks": [
+    {
+      "id": "define",
+      "name": "Define Function",
+      "description": "Create a reusable block of logic with a name and optional parameters",
+      "nodeShape": "rect",
+      "nodeType": "process",
+      "color": "blue",
+      "icon": "function",
+      "hasBody": true,
+      "inputs": [
+        { "id": "name",   "label": "Function name",                          "type": "text", "placeholder": "greetUser" },
+        { "id": "params", "label": "Parameters (comma-separated, or empty)", "type": "text", "placeholder": "name, age" }
+      ],
+      "outputs": []
+    },
+    {
+      "id": "call",
+      "name": "Call Function",
+      "description": "Run a function by name and optionally store what it returns",
+      "nodeShape": "rect",
+      "nodeType": "process",
+      "color": "blue",
+      "icon": "play",
+      "inputs": [
+        { "id": "name",   "label": "Function name",                         "type": "text", "placeholder": "greetUser" },
+        { "id": "args",   "label": "Arguments (comma-separated, or empty)", "type": "text", "placeholder": "@name, 25" },
+        { "id": "result", "label": "Store return value in (optional)",      "type": "text", "placeholder": "output" }
+      ],
+      "outputs": [
+        { "id": "result", "label": "Return value variable" }
+      ]
+    },
+    {
+      "id": "return",
+      "name": "Return",
+      "description": "Exit the current function and send back a value",
+      "nodeShape": "circle",
+      "nodeType": "output",
+      "color": "slate",
+      "icon": "send",
+      "inputs": [
+        { "id": "value", "label": "Value to return", "type": "text", "placeholder": "@result or 42" }
+      ],
+      "outputs": []
+    }
+  ]
+}

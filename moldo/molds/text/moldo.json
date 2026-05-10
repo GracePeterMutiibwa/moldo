@@ -1,0 +1,128 @@
+{
+  "name": "text",
+  "displayName": "Text",
+  "version": "1.0.0",
+  "description": "String operations: join, split, search, transform",
+  "author": "Moldo Core",
+  "isCore": true,
+  "blocks": [
+    {
+      "id": "join",
+      "name": "Join Text",
+      "description": "Combine two pieces of text into one",
+      "nodeShape": "rect",
+      "nodeType": "process",
+      "color": "violet",
+      "icon": "merge",
+      "inputs": [
+        { "id": "left",      "label": "First part",   "type": "text", "placeholder": "@firstName or Hello " },
+        { "id": "right",     "label": "Second part",  "type": "text", "placeholder": "@lastName or World" },
+        { "id": "separator", "label": "Separator",    "type": "text", "placeholder": " (leave empty for none)" },
+        { "id": "result",    "label": "Store in",     "type": "text", "placeholder": "fullText" }
+      ],
+      "outputs": [
+        { "id": "result", "label": "Result variable" }
+      ]
+    },
+    {
+      "id": "split",
+      "name": "Split Text",
+      "description": "Split a piece of text into a list using a separator",
+      "nodeShape": "rect",
+      "nodeType": "process",
+      "color": "violet",
+      "icon": "split",
+      "inputs": [
+        { "id": "value",     "label": "Text to split", "type": "text", "placeholder": "@sentence or a,b,c" },
+        { "id": "separator", "label": "Split by",      "type": "text", "placeholder": ", or space" },
+        { "id": "result",    "label": "Store list in", "type": "text", "placeholder": "words" }
+      ],
+      "outputs": [
+        { "id": "result", "label": "Result variable" }
+      ]
+    },
+    {
+      "id": "upper",
+      "name": "Uppercase",
+      "description": "Convert text to ALL CAPS",
+      "nodeShape": "rect",
+      "nodeType": "process",
+      "color": "violet",
+      "icon": "sort",
+      "inputs": [
+        { "id": "value",  "label": "Text",     "type": "text", "placeholder": "@name or hello" },
+        { "id": "result", "label": "Store in", "type": "text", "placeholder": "upper" }
+      ],
+      "outputs": [
+        { "id": "result", "label": "Result variable" }
+      ]
+    },
+    {
+      "id": "lower",
+      "name": "Lowercase",
+      "description": "Convert text to all lowercase",
+      "nodeShape": "rect",
+      "nodeType": "process",
+      "color": "violet",
+      "icon": "sort",
+      "inputs": [
+        { "id": "value",  "label": "Text",     "type": "text", "placeholder": "@name or HELLO" },
+        { "id": "result", "label": "Store in", "type": "text", "placeholder": "lower" }
+      ],
+      "outputs": [
+        { "id": "result", "label": "Result variable" }
+      ]
+    },
+    {
+      "id": "replace",
+      "name": "Replace",
+      "description": "Replace every occurrence of a word or phrase with something else",
+      "nodeShape": "rect",
+      "nodeType": "process",
+      "color": "violet",
+      "icon": "filter",
+      "inputs": [
+        { "id": "value",       "label": "Text",         "type": "text", "placeholder": "@sentence" },
+        { "id": "find",        "label": "Find",         "type": "text", "placeholder": "foo" },
+        { "id": "replaceWith", "label": "Replace with", "type": "text", "placeholder": "bar" },
+        { "id": "result",      "label": "Store in",     "type": "text", "placeholder": "updated" }
+      ],
+      "outputs": [
+        { "id": "result", "label": "Result variable" }
+      ]
+    },
+    {
+      "id": "length",
+      "name": "Text Length",
+      "description": "Count the number of characters in a piece of text",
+      "nodeShape": "rect",
+      "nodeType": "process",
+      "color": "violet",
+      "icon": "ruler",
+      "inputs": [
+        { "id": "value",  "label": "Text",     "type": "text", "placeholder": "@name or hello" },
+        { "id": "result", "label": "Store in", "type": "text", "placeholder": "charCount" }
+      ],
+      "outputs": [
+        { "id": "result", "label": "Result variable" }
+      ]
+    },
+    {
+      "id": "contains",
+      "name": "Text Contains",
+      "description": "Check whether a piece of text contains a word or phrase (true/false)",
+      "nodeShape": "rect",
+      "nodeType": "process",
+      "color": "violet",
+      "icon": "eye",
+      "inputs": [
+        { "id": "value",  "label": "Text to search",     "type": "text", "placeholder": "@sentence" },
+        { "id": "search", "label": "Look for",           "type": "text", "placeholder": "hello" },
+        { "id": "result", "label": "Store result (bool)", "type": "text", "placeholder": "found" }
+      ],
+      "outputs": [
+        { "id": "result", "label": "Result variable" }
+      ]
+    }
+  ]
+}

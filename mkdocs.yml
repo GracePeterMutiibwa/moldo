@@ -1,0 +1,68 @@
+site_name: Moldo
+site_description: Visual educational programming language — block-based, Python-powered, extensible.
+site_author: Grace Peter Mutiibwa
+site_url: https://gracepetermutiibwa.github.io/moldo/
+
+repo_name: GracePeterMutiibwa/moldo
+repo_url: https://github.com/GracePeterMutiibwa/moldo
+
+theme:
+  name: material
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: blue
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: indigo
+      accent: blue
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  font:
+    text: IBM Plex Sans
+    code: JetBrains Mono
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - content.code.copy
+    - content.code.annotate
+    - search.highlight
+    - search.suggest
+  icon:
+    repo: fontawesome/brands/github
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/GracePeterMutiibwa
+    - icon: fontawesome/solid/globe
+      link: https://www.gracepeter.space
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - tables
+  - attr_list
+  - md_in_html
+
+nav:
+  - Home: index.md
+  - Getting Started: getting-started.md
+  - Molds:
+      - Overview: molds/index.md
+      - Creating Molds: molds/creating-molds.md
+      - Manifest Reference: molds/manifest.md
+  - API Reference: api.md
+  - Protocol: protocol.md

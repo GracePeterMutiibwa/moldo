@@ -1,0 +1,7 @@
+# Python dependencies for this mold.
+# List any pip packages your block functions need.
+# These are installed automatically when a user installs your mold.
+#
+# Example:
+# requests>=2.31
+# beautifulsoup4>=4.12

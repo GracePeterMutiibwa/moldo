@@ -1,3 +1,0 @@
-<mblock type="loop" condition="i in range(6)">
-<mblock type="print">f"At {i}"</mblock>
-</mblock>

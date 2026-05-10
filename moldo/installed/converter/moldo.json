@@ -1,0 +1,107 @@
+{
+  "name": "converter",
+  "displayName": "Type Converter",
+  "version": "1.0.0",
+  "description": "Convert values between data types",
+  "author": "Moldo Community",
+  "moldoMinVersion": "0.5.0",
+  "isCore": false,
+  "blocks": [
+    {
+      "id": "to_int",
+      "name": "To Integer",
+      "description": "Converts a value to an integer",
+      "nodeType": "process",
+      "color": "#059669",
+      "icon": "bi-123",
+      "inputs": [
+        {
+          "id": "value",
+          "label": "Value",
+          "type": "variable",
+          "placeholder": "my_var"
+        }
+      ],
+      "outputs": [
+        {
+          "id": "result",
+          "label": "Save result to",
+          "type": "variable"
+        }
+      ],
+      "pythonCall": "converter.to_int"
+    },
+    {
+      "id": "to_float",
+      "name": "To Float",
+      "description": "Converts a value to a decimal number",
+      "nodeType": "process",
+      "color": "#059669",
+      "icon": "bi-calculator",
+      "inputs": [
+        {
+          "id": "value",
+          "label": "Value",
+          "type": "variable",
+          "placeholder": "my_var"
+        }
+      ],
+      "outputs": [
+        {
+          "id": "result",
+          "label": "Save result to",
+          "type": "variable"
+        }
+      ],
+      "pythonCall": "converter.to_float"
+    },
+    {
+      "id": "to_str",
+      "name": "To Text",
+      "description": "Converts a value to text",
+      "nodeType": "process",
+      "color": "#059669",
+      "icon": "bi-type",
+      "inputs": [
+        {
+          "id": "value",
+          "label": "Value",
+          "type": "variable",
+          "placeholder": "my_var"
+        }
+      ],
+      "outputs": [
+        {
+          "id": "result",
+          "label": "Save result to",
+          "type": "variable"
+        }
+      ],
+      "pythonCall": "converter.to_str"
+    },
+    {
+      "id": "to_bool",
+      "name": "To True/False",
+      "description": "Converts a value to True or False",
+      "nodeType": "process",
+      "color": "#059669",
+      "icon": "bi-toggle-on",
+      "inputs": [
+        {
+          "id": "value",
+          "label": "Value",
+          "type": "variable",
+          "placeholder": "my_var"
+        }
+      ],
+      "outputs": [
+        {
+          "id": "result",
+          "label": "Save result to",
+          "type": "variable"
+        }
+      ],
+      "pythonCall": "converter.to_bool"
+    }
+  ]
+}
