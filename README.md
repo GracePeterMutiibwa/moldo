@@ -1,5 +1,9 @@
 # Moldo
 
+[![Python Version](https://img.shields.io/badge/python-3.10%2B-blue.svg)](https://python.org)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Documentation Status](https://readthedocs.org/projects/moldo/badge/?version=latest)](https://moldo.readthedocs.io/en/latest/?badge=latest)
+
 > Visual educational programming - block-based, Python-powered, extensible.
 
 Moldo is the backend runtime for a visual block-based programming environment. Learners drag and connect blocks in the **mflow-editor** desktop app to build programs. The editor compiles the visual graph to a JSON program tree and sends it to this backend, which executes it and streams the output back.

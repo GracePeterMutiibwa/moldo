@@ -6,8 +6,8 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "moldo"
-version = "0.5.0"
-description = "Backend runtime for Moldo — a visual educational programming language."
+version = "0.5.1"
+description = "Backend runtime for Moldo - a visual educational programming language."
 readme = "README.md"
 license = { text = "MIT" }
 authors = [{ name = "Grace Peter Mutiibwa", email = "gracepetermutiibwa@gmail.com" }]
