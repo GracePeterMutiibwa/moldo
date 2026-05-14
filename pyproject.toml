@@ -6,7 +6,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "moldo"
-version = "0.5.1"
+version = "0.5.2"
 description = "Backend runtime for Moldo - a visual educational programming language."
 readme = "README.md"
 license = { text = "MIT" }
