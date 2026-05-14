@@ -9,6 +9,7 @@ Endpoints:
     POST /molds/install       → { manifest }
     DELETE /molds/{name}      → { ok }
 """
+
 import io
 import json
 import logging
@@ -28,23 +29,23 @@ from moldo.core.compiler import ProgramCompiler
 from moldo.core.interpreter import MoldoInterpreter
 from moldo.core.mold_registry import MoldRegistry
 
-logger = logging.getLogger('moldo')
+logger = logging.getLogger("moldo")
 
 # Directory scanned on startup for pre-installed community molds
-_WATCH_DIR = Path.home() / 'Downloads' / 'molds'
+_WATCH_DIR = Path.home() / "Downloads" / "molds"
 
 
 def _auto_install_molds(registry: MoldRegistry) -> None:
     """Scan _WATCH_DIR and install any .mold files not already registered."""
     if not _WATCH_DIR.exists():
         return
-    for mold_file in sorted(_WATCH_DIR.glob('*.mold')):
+    for mold_file in sorted(_WATCH_DIR.glob("*.mold")):
         try:
             with zipfile.ZipFile(mold_file) as zf:
-                if 'moldo.json' not in zf.namelist():
+                if "moldo.json" not in zf.namelist():
                     continue
-                manifest = json.loads(zf.read('moldo.json'))
-                mold_name = manifest.get('name', '')
+                manifest = json.loads(zf.read("moldo.json"))
+                mold_name = manifest.get("name", "")
             if not mold_name:
                 continue
             if registry.get_mold(mold_name):
@@ -53,7 +54,7 @@ def _auto_install_molds(registry: MoldRegistry) -> None:
             registry.install(mold_file)
             logger.info('Auto-installed mold "%s" from %s', mold_name, mold_file.name)
         except Exception as exc:
-            logger.warning('Could not auto-install %s: %s', mold_file.name, exc)
+            logger.warning("Could not auto-install %s: %s", mold_file.name, exc)
 
 
 @asynccontextmanager
@@ -62,76 +63,78 @@ async def lifespan(app: FastAPI):
     yield
 
 
-app = FastAPI(title='Moldo Backend', version='0.5.0', lifespan=lifespan)
+app = FastAPI(title="Moldo Backend", version="0.5.0", lifespan=lifespan)
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=['*'],
-    allow_methods=['*'],
-    allow_headers=['*'],
+    allow_origins=["*"],
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 # Singleton registry + compiler - shared across all requests
 _registry = MoldRegistry()
-_compiler  = ProgramCompiler(registry=_registry)
+_compiler = ProgramCompiler(registry=_registry)
 
 
-# ── Models ────────────────────────────────────────────────────
+# Models ────────────
+
 
 class ProgramPayload(BaseModel):
-    version: str = '1.0'
-    molds:   list[str] = []
+    version: str = "1.0"
+    molds: list[str] = []
     program: dict
 
 
 class RunResult(BaseModel):
-    stdout:     list[str]
-    errors:     list[str]
+    stdout: list[str]
+    errors: list[str]
     highlights: list[str]
 
 
 class HealthResponse(BaseModel):
-    status:    str
+    status: str
     timestamp: str
 
 
-# ── Routes ────────────────────────────────────────────────────
+# Routes ────────────
 
-@app.get('/health', response_model=HealthResponse)
+
+@app.get("/health", response_model=HealthResponse)
 async def health():
     return HealthResponse(
-        status='OK',
+        status="OK",
         timestamp=datetime.now(timezone.utc).isoformat(),
     )
 
 
-@app.post('/run', response_model=RunResult)
+@app.post("/run", response_model=RunResult)
 async def run_program(payload: ProgramPayload):
     """Compile and execute a JSON program tree."""
     try:
         source = _compiler.compile(payload.dict())
     except Exception as exc:
-        raise HTTPException(status_code=422, detail=f'Compile error: {exc}')
+        raise HTTPException(status_code=422, detail=f"Compile error: {exc}")
 
     stdout_lines: list[str] = []
-    error_lines:  list[str] = []
-    highlights:   list[str] = []
+    error_lines: list[str] = []
+    highlights: list[str] = []
 
     # Collect node IDs from comments emitted by the compiler (# node-N)
     for line in source.splitlines():
-        m = re.match(r'\s*#\s*(node-\S+)', line)
+        m = re.match(r"\s*#\s*(node-\S+)", line)
         if m:
             highlights.append(m.group(1))
 
     # Execute in an isolated namespace with stdout captured
-    buf       = io.StringIO()
+    buf = io.StringIO()
     namespace = {}
     try:
         with redirect_stdout(buf):
-            exec(compile(source, '<moldo>', 'exec'), namespace)  # noqa: S102
+            exec(compile(source, "<moldo>", "exec"), namespace)  # noqa: S102
     except Exception:
         tb = traceback.format_exc()
-        user_lines = [l for l in tb.splitlines() if '<moldo>' in l or 'Error' in l]
+        user_lines = [l for l in tb.splitlines() if "<moldo>" in l or "Error" in l]
         error_lines = user_lines or [tb.splitlines()[-1]]
 
     stdout_lines = [l for l in buf.getvalue().splitlines() if l]
@@ -139,18 +142,18 @@ async def run_program(payload: ProgramPayload):
     return RunResult(stdout=stdout_lines, errors=error_lines, highlights=highlights)
 
 
-@app.get('/molds')
+@app.get("/molds")
 async def list_molds():
-    return {'molds': _registry.all_molds()}
+    return {"molds": _registry.all_molds()}
 
 
-@app.post('/molds/install')
+@app.post("/molds/install")
 async def install_mold(file: UploadFile = File(...)):
     """Accept a .zip.mold upload, extract, pip-install deps, and register."""
-    if not (file.filename or '').endswith('.mold'):
-        raise HTTPException(status_code=400, detail='File must have a .mold extension')
+    if not (file.filename or "").endswith(".mold"):
+        raise HTTPException(status_code=400, detail="File must have a .mold extension")
 
-    with tempfile.NamedTemporaryFile(suffix='.zip', delete=False) as tmp:
+    with tempfile.NamedTemporaryFile(suffix=".zip", delete=False) as tmp:
         tmp.write(await file.read())
         tmp_path = Path(tmp.name)
 
@@ -161,20 +164,21 @@ async def install_mold(file: UploadFile = File(...)):
     finally:
         tmp_path.unlink(missing_ok=True)
 
-    return {'manifest': manifest}
+    return {"manifest": manifest}
 
 
-@app.delete('/molds/{mold_name}')
+@app.delete("/molds/{mold_name}")
 async def uninstall_mold(mold_name: str):
     if not _registry.get_mold(mold_name):
         raise HTTPException(status_code=404, detail=f'Mold "{mold_name}" not found')
     _registry.uninstall(mold_name)
-    return {'ok': True}
+    return {"ok": True}
 
 
-# ── Real-time WebSocket execution ──────────────────────────────
+# Real-time WebSocket execution ──────────────────────────────
 
-@app.websocket('/ws/run')
+
+@app.websocket("/ws/run")
 async def ws_run(ws: WebSocket):
     """
     Real-time execution bridge.
@@ -190,15 +194,15 @@ async def ws_run(ws: WebSocket):
     await ws.accept()
     try:
         msg = await ws.receive_json()
-        if msg.get('type') != 'start':
-            await ws.send_json({'type': 'error', 'message': 'Expected type=start'})
+        if msg.get("type") != "start":
+            await ws.send_json({"type": "error", "message": "Expected type=start"})
             await ws.close()
             return
 
-        program    = (msg.get('protocol') or {}).get('program')
-        step_delay = float(msg.get('stepDelay') or 0)
+        program = (msg.get("protocol") or {}).get("program")
+        step_delay = float(msg.get("stepDelay") or 0)
         if not program:
-            await ws.send_json({'type': 'error', 'message': 'No program in protocol'})
+            await ws.send_json({"type": "error", "message": "No program in protocol"})
             await ws.close()
             return
 
@@ -212,15 +216,15 @@ async def ws_run(ws: WebSocket):
         try:
             await interpreter.run(program, send, recv, step_delay=step_delay)
         except Exception as exc:
-            await ws.send_json({'type': 'error', 'message': str(exc)})
+            await ws.send_json({"type": "error", "message": str(exc)})
 
-        await ws.send_json({'type': 'done'})
+        await ws.send_json({"type": "done"})
 
     except WebSocketDisconnect:
         pass
     except Exception as exc:
-        logger.warning('ws_run error: %s', exc)
+        logger.warning("ws_run error: %s", exc)
         try:
-            await ws.send_json({'type': 'error', 'message': str(exc)})
+            await ws.send_json({"type": "error", "message": str(exc)})
         except Exception:
             pass

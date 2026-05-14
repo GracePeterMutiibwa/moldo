@@ -1,5 +1,5 @@
 site_name: Moldo
-site_description: Visual educational programming language — block-based, Python-powered, extensible.
+site_description: Visual educational programming language - block-based, Python-powered, extensible.
 site_author: Grace Peter Mutiibwa
 site_url: https://gracepetermutiibwa.github.io/moldo/
 
@@ -10,6 +10,8 @@ repo_url: https://github.com/GracePeterMutiibwa/moldo
 nav:
   - Home: index.md
   - Getting Started: getting-started.md
+  - CLI Reference: cli.md
+  - Runtime API: runtime.md
   - Molds:
       - Overview: molds/index.md
       - Creating Molds: molds/creating-molds.md

@@ -10,3 +10,4 @@ need
 __pycache__/
 *.pyc
 .claude
+moldo/installed/

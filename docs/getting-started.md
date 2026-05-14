@@ -30,7 +30,7 @@
 ## 2. Start the backend server
 
 ```bash
-moldo serve
+moldo --serve
 ```
 
 You should see:
@@ -87,12 +87,26 @@ The output panel shows:
 
 ---
 
+## Compile a flow to Python
+
+After building a program in the editor, export it from **File > Export** and compile it from the terminal:
+
+```bash
+moldo myprogram.json            # print generated Python to stdout
+moldo -c myprogram.json -o myprogram.py   # write to a file
+python myprogram.py             # run it standalone
+```
+
+See the [CLI Reference](cli.md) for all options.
+
+---
+
 ## Development mode
 
 Run the backend with auto-reload (restarts on file changes):
 
 ```bash
-uvicorn moldo.api.server:app --host 127.0.0.1 --port 8000 --reload
+moldo --serve --reload
 ```
 
 Run the editor with the Node.js inspector:
